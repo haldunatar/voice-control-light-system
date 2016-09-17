@@ -1,13 +1,15 @@
 const Gpio = require('onoff').Gpio;
 const express =  require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 app.use(express.static(__dirname + '/.'));
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 
 app.get('/', (req, res) =>  res.render('./index.html'));
 
 app.listen('3000', () => console.log('running on 3000'));
-
 
 //Gpio pins setup
 const lightBlue = new Gpio(1, 'out');
@@ -26,3 +28,17 @@ const lightRedOff = () => lightRed.writeSync(0);
 
 const lightYellowOn = () => lightYellow.writeSync(1);
 const lightYellowOff = () => lightYellow.writeSync(0);
+
+const allTheLightsOff = () => {
+    lightBlueOff();
+    lightGreenOff();
+    lightRedOff();
+    lightYellowOff();
+};
+
+const allTheLightsOn = () => {
+    lightBlueOn();
+    lightGreenOn();
+    lightRedOn();
+    lightYellowOn();
+};
