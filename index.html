@@ -68,7 +68,7 @@
             console.log('sending ', command);
             $.ajax({
                 type: "POST",
-                url: 'http://localhost:3000',
+                url: 'http://192.168.2.12:3000/',
                 data: JSON.stringify(command),
                 contentType: "application/json",
                 success: function(res) {
@@ -79,6 +79,8 @@
 
         recognition.onresult = function(event) {
             var voiceCommand = formatCommand(event.results[0][0].transcript);
+            console.log(voiceCommand);
+
             var commands = [
                 'blueOn',
                 'blueOff',
