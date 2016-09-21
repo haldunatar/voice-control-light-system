@@ -5,22 +5,108 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
 
+    <title>Speech color changer</title>
+    <script src="jquery.js"></script>
     <style>
         *{margin:0; padding:0}
 
         .color-command {
             width:100%;
         }
+        section{
+            width:50%;
+            height:200px;
+            margin: 50px auto;
+        }
     </style>
-
-    <title>Voice control light system</title>
-
 </head>
 
 <body>
+<section id="command-container">
+    Click here to change the light status
+</section>
 
-<section class="color-command"></section>
+<script>
+    $(function() {
 
-<script src="webspeech.js"></script>
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+        var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+        var grammar = '#JSGF V1.0; grammar colors; public <color> = red | grey | blue | white | yellow ;'
+        var recognition = new SpeechRecognition();
+        var speechRecognitionList = new SpeechGrammarList();
+
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+
+        //recognition.continuous = false;
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        var container = document.getElementById('command-container');
+
+        var formatCommand = function(com) {
+            var command = '';
+            var words = com.split(' ');
+
+            words.forEach(function(text) {
+                command += text.charAt(0).toUpperCase() + text.slice(1);
+            });
+
+            return command.charAt(0).toLocaleLowerCase() + command.slice(1);
+        };
+
+        $('section').click(function() {
+            recognition.start();
+            console.log('Ready to receive a color command.');
+        });
+
+        var sendCommand = function(command) {
+            console.log('sending ', command);
+            $.ajax({
+                type: "POST",
+                url: 'http://localhost:3000',
+                data: JSON.stringify(command),
+                contentType: "application/json",
+                success: function(res) {
+                    console.log(res);
+                }
+            });
+        };
+
+        recognition.onresult = function(event) {
+            var voiceCommand = formatCommand(event.results[0][0].transcript);
+            var commands = [
+                'blueOn',
+                'blueOff',
+                'greenOn',
+                'greenOff',
+                'redLightOn',
+                'redLightOff',
+                'yellowOn',
+                'yellowOff',
+                'lightsOn',
+                'lightsOff'
+            ];
+
+            for(var i = 0; i < commands.length; i++) {
+                if(commands[i] === voiceCommand) {
+                    container.style.backgroundColor = voiceCommand;
+
+                    var light = {
+                        key: voiceCommand
+                    };
+                    sendCommand(light);
+                }
+            }
+        };
+
+        recognition.onspeechend = function() {
+            recognition.stop();
+        };
+    });
+</script>
 </body>
 </html>
