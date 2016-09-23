@@ -47,6 +47,7 @@
         recognition.maxAlternatives = 1;
 
         var container = document.getElementById('command-container');
+        var commandApi = window.location.href;
 
         var formatCommand = function(com) {
             var command = '';
@@ -68,7 +69,7 @@
             console.log('sending ', command);
             $.ajax({
                 type: "POST",
-                url: 'http://192.168.2.12:3000/',
+                url: commandApi,
                 data: JSON.stringify(command),
                 contentType: "application/json",
                 success: function(res) {
