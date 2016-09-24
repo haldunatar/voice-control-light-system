@@ -47,3 +47,7 @@ Controlling led lights with [Html5 Web Speech API](https://developer.mozilla.org
 - **Yellow on**: Turns the Yellow light on.
 
 - **Yellow off**: Turns the Yellow light off.
+
+### Wiring raspberry pi and the led lights on breadboard
+
+!['Wiring pi'](screenshots/wiring.jpg "breadboard")
