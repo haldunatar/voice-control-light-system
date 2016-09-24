@@ -50,4 +50,4 @@ Controlling led lights with [Html5 Web Speech API](https://developer.mozilla.org
 
 ### Wiring raspberry pi and the led lights on breadboard
 
-!['Wiring pi'](screenshots/wiring.jpg "breadboard")
+!['Wiring pi'](screenshots/wiring.jpg = 150x150)
