@@ -20,33 +20,30 @@ Controlling led lights with [Html5 Web Speech API](https://developer.mozilla.org
 
 2. `npm install`
 
-3. `node server`
+3. `node server` will start a web server on port 3000
 
-4. Type `sudo ifconfig` to see your IP address on wlan0 (Note: It changes every time you boot the pi!)
+4. On another terminal type `sudo ifconfig` to see your IP address on wlan0 (Note: It changes every time you boot the pi!)
 
-5. On chrome: browse the pi IP address and the server port after like: (192.168.2.10:3000)
+5. On chrome: browse the pi IP address and the server port after, like: (192.168.2.10:3000)
 
 ### Voice commands:
 
-- Lights on: Turns all the lights on.
+- **Lights on**: Turns all the lights on.
 
-- Lights off: Turns all the lights off.
+- **Lights off**: Turns all the lights off.
 
-- Blue on: Turns the blue light on.
+- **Blue on**: Turns the blue light on.
 
-- Blue off: Turns the blue light off.
+- **Blue off**: Turns the blue light off.
 
-- Green on: Turns the green light on.
+- **Green on**: Turns the green light on.
 
-- Green off: Turns the Green light off.
+- **Green off**: Turns the Green light off.
 
-- Red on: Turns the Red light on.
+- **Red on**: Turns the Red light on.
 
-- Red off: Turns the Red light off.
+- **Red off**: Turns the Red light off.
 
-- Yellow on: Turns the Yellow light on.
+- **Yellow on**: Turns the Yellow light on.
 
-- Yellow off: Turns the Yellow light off.
-
-
-
+- **Yellow off**: Turns the Yellow light off.
