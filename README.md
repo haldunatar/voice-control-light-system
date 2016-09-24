@@ -50,4 +50,14 @@ Controlling led lights with [Html5 Web Speech API](https://developer.mozilla.org
 
 ### Wiring raspberry pi and the led lights on breadboard
 
+> **Led blue** to Gpio pin 19
+
+> **Led green** to Gpio pin 17
+
+> **Led red** to Gpio pin 27
+
+> **Led yellow** to Gpio pin 16
+
+> Black wires are connected to **Ground**
+
 !['Wiring pi'](screenshots/wiring.jpg)
