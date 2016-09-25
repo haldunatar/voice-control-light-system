@@ -1,6 +1,6 @@
 # Voice control light system
 
-Controlling led lights with [Html5 Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API).
+Controlling led lights with [Html5 Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) using raspberry pi!
 
 ### For this project you will need:
 
