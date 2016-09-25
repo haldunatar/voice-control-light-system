@@ -24,7 +24,18 @@ Controlling led lights with [Html5 Web Speech API](https://developer.mozilla.org
 
 4. On another terminal type `sudo ifconfig` to see your IP address on wlan0 (Note: It changes every time you boot the pi!)
 
-5. On chrome: browse the pi IP address and the server port after, like: (192.168.2.10:3000)
+Note: Web speech api works currently only on chrome and firefox. If you (most probably) don't have chrome on your pi; you can
+simply start the application from your laptop or desktop that is connected to same network with your raspberry-pi.
+
+5. On your laptop/desktop: open chrome and browse the pi IP address and the server port after it. Like: **192.168.2.10:3000**
+
+Note: There is one more challenge! Chrome will not allow you to make http calls due to the same-origin-policy. To fix that:
+Simply install [This plug-in](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en)
+on your chrome browser. As you start the application on a page, click on the (CORS) icon right up on the corner and now you can send
+the commands to the node server.
+
+6. Allow the browser to use your microphone as it is asked and click on the text to speak your command.
+
 
 ### Voice commands:
 
