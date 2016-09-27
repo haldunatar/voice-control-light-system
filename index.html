@@ -97,11 +97,11 @@
 
             for(var i = 0; i < commands.length; i++) {
                 if(commands[i] === voiceCommand) {
-                    container.style.backgroundColor = voiceCommand;
 
                     var light = {
                         key: voiceCommand
                     };
+
                     sendCommand(light);
                 }
             }
