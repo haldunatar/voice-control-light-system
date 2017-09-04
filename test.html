@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<script>
+ if (window.DeviceMotionEvent != undefined) {
+        window.ondevicemotion = function(e) {
+            x = e.acceleration.x;
+            alert(e.acceleration.x)
+        }
+ 
+    }
+</script>
+</head>
+<body></body></html>
